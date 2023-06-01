@@ -54,10 +54,11 @@
             justify-content: center;
             padding: 20px;
             background-color: #fff;
+            gap: 20px; /* Add a gap value that suits your preference */
         }
 
         .middle-box {
-            width: calc(50% - 40px);
+            width: calc(50% - 20px); /* Adjust the width and gap values accordingly */
             height: 200px;
             border: 1px solid #ccc;
             display: flex;
@@ -65,8 +66,8 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            margin-bottom: 20px;
         }
+
 
     @media screen and (max-width: 767px) {
         .middle-box {
@@ -120,69 +121,125 @@
             font-size: 14px;
             color: #666;
         }
+
+        .input-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .user-input {
+            width: 300px;
+            padding: 10px;
+            border: none;
+            background-color: #444;
+            color: #fff;
+        }
+
+        .send-button {
+            width: 80px;
+            height: 40px;
+            border-radius: 20px;
+            background-image: linear-gradient(purple, blue);
+            border: none;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
     </style>
 </head>
+
+
     <body>
+
         <div class="container">
+
             <div class="left-column">
+                
                 <h2>Chat History</h2>
+                
                 <div class="chat-history">
                     <!-- Chat history messages go here -->
                 </div>
+
             </div>
+
             <div class="middle-section">
+                
                 <div class="middle-box">
-
-                    <div class="visual-element">
-                        <div class="robot">
-                            <img src="robot.png" alt="Robot Animation">
-                        </div>
-                    </div>
-
-                    <div class="middle-box">
-                        <div class="middle-box-icon">Icon 1</div>
-                        <p>Box 1 Description</p>
-                    </div>
-
-                    <div class="middle-box">
-                        <div class="middle-box-icon">Icon 2</div>
-                        <p>Box 2 Description</p>
-                    </div>
-
-                    <div class="middle-box">
-                        <div class="middle-box-icon">Icon 3</div>
-                        <p>Box 3 Description</p>
-                    </div>
-
-                    <div class="middle-box">
-                        <div class="middle-box-icon">Icon 4</div>
-                        <p>Box 4 Description</p>
-                    </div>
-
-                    <div class="middle-box">
-                        <div class="middle-box-icon">Icon 5</div>
-                        <p>Box 5 Description</p>
-                    </div>
-                    
-                    <div class="middle-box">
-                        <div class="middle-box-icon">Icon 6</div>
-                        <p>Box 6 Description</p>
-                    </div>
-                    
-
-                    
-                    <div class="account">
-                        ICON (Linked with google login) - Waisoon1999@gmail.com
-                    </div>
-
+                    <!-- Box 1 content -->
                 </div>
+                
+                <div class="middle-box">
+                    <!-- Box 2 content -->
+                </div>
+                
+                <div class="middle-box">
+                    <!-- Box 3 content -->
+                </div>
+                
+                <div class="middle-box">
+                    <!-- Box 4 content -->
+                </div>
+                
+                <div class="middle-box">
+                    <!-- Box 5 content -->
+                </div>
+                
+                <div class="middle-box">
+                    <!-- Box 6 content -->
+                </div>
+
+                <!-- Dynamic Placeholder for user to input their message -->
+
+                <div class="input-box">
+                    <input type="text" id="user-input" class="user-input" placeholder="" onkeydown="submitOnEnter(event)" />
+                    <button class="send-button" onclick="sendMessage()">Send</button>
+                </div>
+
             </div>
+
             <footer>
                 <div class="footer-content">
                     <!-- Footer content -->
                 </div>
             </footer>
+
         </div>
+
+        <script>
+
+            // Dynamic Change of Placeholder at random - To spice up the tone of the IT assistant.
+            // Random placeholder messages
+            function sendMessage() {
+            var userInput = document.getElementById('user-input').value;
+            // Process the user input as desired
+            console.log('User Input:', userInput);
+            // Perform any other operations here
+            }
+
+            function submitOnEnter(event) {
+                if (event.keyCode === 13) {
+                    event.preventDefault();
+                    sendMessage();
+                }
+            }
+
+            var placeholders = [
+                "I'm raring to go",
+                "Please just input something",
+                "I'm a tech nerd, you can ask me anything"
+            ];
+
+            var randomIndex = Math.floor(Math.random() * placeholders.length);
+            var placeholder = placeholders[randomIndex];
+            document.getElementById('user-input').placeholder = placeholder;
+
+        </script>
+
     </body>
 </html>
 
